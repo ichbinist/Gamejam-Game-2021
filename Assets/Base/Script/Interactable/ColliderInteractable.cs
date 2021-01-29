@@ -6,29 +6,32 @@ public class ColliderInteractable : InteractableBase
 {
     private ScaleAnimation scaleAnimation;
     public ScaleAnimation ScaleAnimation { get { return (scaleAnimation == null) ? scaleAnimation = GetComponentInChildren<ScaleAnimation>() : scaleAnimation; } }
+
     public override void Escape()
     {
+        base.Escape();
         ScaleAnimation.Close();
     }
 
     public override void Interact()
     {
+        base.Interact();
         ScaleAnimation.Open();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.GetComponent<Character>() != null)
+        if(collision.gameObject.GetComponent<Character>())
         {
             Interact();
         }       
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Character>() != null)
+        if (collision.gameObject.GetComponent<Character>())
         {
-            Interact();
+            Escape();
         }
     }
 }

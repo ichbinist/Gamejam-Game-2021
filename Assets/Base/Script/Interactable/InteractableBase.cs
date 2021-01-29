@@ -7,24 +7,36 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
 {
     public UnityEvent OnInteracted = new UnityEvent();
     
-    private void OnEnable()
+    private void ListenInteractable()
     {
       if(!Managers.Instance) return;
-
+        CharacterManager.Instance.GetPlayer.OnInteractionKeyPressed.AddListener(Do);
     }
 
-    private void OnDisable()
+    private void UnlistenInteractable()
     {
       if(!Managers.Instance) return;
-
+        CharacterManager.Instance.GetPlayer.OnInteractionKeyPressed.RemoveListener(Do);
     }
 
     public void Do()
     {
-        OnInteracted.Invoke();
+        if (CharacterManager.Instance.GetPlayer.CurrentInteractable == this)
+            OnInteracted.Invoke();
+        Debug.Log(gameObject.name + "'s Do() function called");
     }
 
-    public abstract void Interact();
-    public abstract void Escape();
+    public virtual void Interact()
+    {
+        CharacterManager.Instance.GetPlayer.CurrentInteractable = this;
+        ListenInteractable();
+    }
 
+    public virtual void Escape()
+    {
+        if (CharacterManager.Instance.GetPlayer.CurrentInteractable == this)
+            CharacterManager.Instance.GetPlayer.CurrentInteractable = null;
+
+        UnlistenInteractable();
+    }
 }

@@ -22,9 +22,14 @@ public class LevelManager : Singleton<LevelManager>
         isLevelStarted = true;
     }
 
+    private void Start()
+    {
+        StartGame();
+    }
+
     public void StartGame()
     {
-        SceneManagement.Instance.LoadScene(SceneManager.GetSceneByBuildIndex(1).name);
+        SceneManagement.Instance.LoadScene("TestLevel");
     }
 
     public void FinishLevel()

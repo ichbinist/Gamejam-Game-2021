@@ -9,11 +9,13 @@ public class ScaleAnimation : MonoBehaviour
 
     public void Open()
     {
-        transform.DOScale(Vector3.one, Duration);
+        DOTween.Kill(gameObject.GetInstanceID());
+        transform.DOScale(Vector3.one, Duration).SetId(gameObject.GetInstanceID());
     }
 
     public void Close()
     {
-        transform.DOScale(Vector3.zero, Duration);
+        DOTween.Kill(gameObject.GetInstanceID());
+        transform.DOScale(Vector3.zero, Duration).SetId(gameObject.GetInstanceID());
     }
 }

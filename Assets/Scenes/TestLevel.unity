@@ -411,6 +411,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c037efab4da49480386fea8cfd2fc64e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterType: 1
+  OnInteractionKeyPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCharacterInitialized:
+    m_PersistentCalls:
+      m_Calls: []
+  CurrentInteractable: {fileID: 0}
 --- !u!58 &1709050867
 CircleCollider2D:
   m_ObjectHideFlags: 0
