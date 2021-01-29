@@ -24,7 +24,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void StartGame()
     {
-        SceneManagement.Instance.LoadScene(SceneManager.GetSceneByBuildIndex(2).name);
+        SceneManagement.Instance.LoadScene(SceneManager.GetSceneByBuildIndex(1).name);
     }
 
     public void FinishLevel()
