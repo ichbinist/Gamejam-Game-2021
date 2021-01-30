@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
     public CharacterType CharacterType;
-
+    [Range(0,100f)]
+    public float Speed;
     [HideInInspector]
     public UnityEvent OnInteractionKeyPressed = new UnityEvent();
     [HideInInspector]
     public UnityEvent OnCharacterInitialized = new UnityEvent();
-
+    [HideInInspector]
     public InteractableBase CurrentInteractable;
+
+    public bool IsControlable;
+
+    public GameObject Graphics;
 
     private void Awake()
     {
