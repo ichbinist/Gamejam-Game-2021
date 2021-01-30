@@ -10,6 +10,7 @@ public class CharacterMovementController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     public Rigidbody2D Rigidbody2D { get { return (_rigidbody2D == null) ? _rigidbody2D = GetComponent<Rigidbody2D>() : _rigidbody2D; } }
     private bool isLeftKeyPressed, isRightKeyPressed;
+    private Vector2 lastRotation = Vector2.one;
     private void OnEnable()
     {
       if(!Managers.Instance) return;
@@ -33,23 +34,18 @@ public class CharacterMovementController : MonoBehaviour
         if (Input.GetKey("a"))
         {
             Rigidbody2D.velocity = (Vector2.left * Character.Speed);
+            lastRotation = Vector3.one + Vector3.left * 2;
         }
         else if (Input.GetKey("d"))
         {
             Rigidbody2D.velocity = (Vector2.right * Character.Speed);
+            lastRotation = Vector3.one;
         }
         else
         {
             Rigidbody2D.velocity = Vector2.zero;
-        }
 
-        if (Rigidbody2D.velocity.x < 0)
-        {
-            Character.Graphics.transform.localScale = Vector3.one + Vector3.left * 2;
         }
-        else
-        {
-            Character.Graphics.transform.localScale = Vector3.one;
-        }
+        Character.Graphics.transform.localScale = lastRotation;
     }
 }
