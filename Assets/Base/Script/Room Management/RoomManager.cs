@@ -2,21 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-public class RoomManager : MonoBehaviour
+public class RoomManager : Singleton<RoomManager>
 {
     public RoomEvent OnRoomEnter = new RoomEvent();
     public RoomEvent OnRoomExit = new RoomEvent();
 
-    private void OnEnable()
-    {
-      if(!Managers.Instance) return;
-
-    }
-
-    private void OnDisable()
-    {
-      if(!Managers.Instance) return;
-
-    }
+    public Room CurrentRoom;
 }
 public class RoomEvent : UnityEvent<int> { }

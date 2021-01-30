@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public abstract class InteractableBase : MonoBehaviour, IInteractable
 {
     public UnityEvent OnInteracted = new UnityEvent();
-    
+
     private void ListenInteractable()
     {
       if(!Managers.Instance) return;
@@ -19,7 +19,7 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
         CharacterManager.Instance.GetPlayer.OnInteractionKeyPressed.RemoveListener(Do);
     }
 
-    public void Do()
+    public virtual void Do()
     {
         if (CharacterManager.Instance.GetPlayer.CurrentInteractable == this)
             OnInteracted.Invoke();

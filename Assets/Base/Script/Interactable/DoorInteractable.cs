@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorInteractable : MonoBehaviour
+public class DoorInteractable : ColliderInteractable
 {
-    private void OnEnable()
+    public Room AttachedRoom;
+    public override void Do()
     {
-      if(!Managers.Instance) return;
-
-    }
-
-    private void OnDisable()
-    {
-      if(!Managers.Instance) return;
-
+        base.Do();
+        if(RoomManager.Instance.CurrentRoom != null)
+            RoomManager.Instance.OnRoomExit.Invoke(RoomManager.Instance.CurrentRoom.RoomID);
+        RoomManager.Instance.OnRoomEnter.Invoke(AttachedRoom.RoomID);           
     }
 }
