@@ -29,7 +29,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void StartGame()
     {
-        SceneManagement.Instance.LoadScene("TestLevel");
+        SceneManagement.Instance.LoadScene("testMustafa");
     }
 
     public void FinishLevel()

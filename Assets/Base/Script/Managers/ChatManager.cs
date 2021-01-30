@@ -6,5 +6,11 @@ using UnityEngine.Events;
 public class ChatManager : Singleton<ChatManager>
 {
     [HideInInspector]
-    public UnityEvent onStartCommunication = new UnityEvent();
+    public ChatEvent onStartCommunication = new ChatEvent();    
+
+}
+
+public class ChatEvent : UnityEvent<CommunicationType>
+{
+
 }

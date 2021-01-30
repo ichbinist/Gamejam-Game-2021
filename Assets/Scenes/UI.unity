@@ -415,7 +415,7 @@ RectTransform:
   m_GameObject: {fileID: 562289466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.88, y: 0.88, z: 0.88}
   m_Children:
   - {fileID: 1372361243}
   m_Father: {fileID: 887177325}
@@ -540,7 +540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.2, y: 4.2}
+  m_AnchoredPosition: {x: 1.2, y: 21}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &807359737
@@ -593,8 +593,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11
-  m_fontSizeBase: 11
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -803,7 +803,7 @@ RectTransform:
   m_GameObject: {fileID: 887177324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2585683, y: 1.2585683, z: 1.2585683}
   m_Children:
   - {fileID: 807359736}
   - {fileID: 1012353876}
@@ -814,8 +814,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 9.001221, y: -80}
-  m_SizeDelta: {x: 577.91223, y: 147.35052}
+  m_AnchoredPosition: {x: 1, y: -120}
+  m_SizeDelta: {x: 577.91223, y: 184.46075}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &887177326
 MonoBehaviour:
@@ -948,7 +948,7 @@ RectTransform:
   m_GameObject: {fileID: 1012353875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.88, y: 0.88, z: 0.88}
   m_Children:
   - {fileID: 813973838}
   m_Father: {fileID: 887177325}
@@ -1067,7 +1067,7 @@ RectTransform:
   m_GameObject: {fileID: 1139800761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.88, y: 0.88, z: 0.88}
   m_Children:
   - {fileID: 472164633}
   m_Father: {fileID: 887177325}
@@ -1566,6 +1566,7 @@ GameObject:
   - component: {fileID: 2137080378}
   - component: {fileID: 2137080380}
   - component: {fileID: 2137080379}
+  - component: {fileID: 2137080381}
   m_Layer: 5
   m_Name: chatBoxPanel
   m_TagString: Untagged
@@ -1630,3 +1631,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137080377}
   m_CullTransparentMesh: 0
+--- !u!114 &2137080381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137080377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa8dcd187c168f478ed440d6da18088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chatBox: {fileID: 887177325}
+  select1: {fileID: 1012353877}
+  select2: {fileID: 562289468}
+  select3: {fileID: 1139800763}

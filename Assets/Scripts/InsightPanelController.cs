@@ -24,8 +24,9 @@ public class InsightPanelController : MonoBehaviour
         ChatManager.Instance.onStartCommunication.RemoveListener(onStartCommunicationListener);
     }
 
-    private void onStartCommunicationListener()
+    private void onStartCommunicationListener(CommunicationType type)
     {
+        if (!(type == CommunicationType.Insight)) return;
         int tweenID = gameObject.GetInstanceID();
         if (isAnimationStarted)
             return;
