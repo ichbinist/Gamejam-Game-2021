@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public abstract class InteractableBase : MonoBehaviour, IInteractable
 {
     public UnityEvent OnInteracted = new UnityEvent();
-
+    public bool IsOneTimeInteractable;
     private void ListenInteractable()
     {
       if(!Managers.Instance) return;
@@ -24,6 +24,7 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
         if (CharacterManager.Instance.GetPlayer.CurrentInteractable == this)
             OnInteracted.Invoke();
         Debug.Log(gameObject.name + "'s Do() function called");
+
     }
 
     public virtual void Interact()

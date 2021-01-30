@@ -34,4 +34,11 @@ public class ColliderInteractable : InteractableBase
             Escape();
         }
     }
+
+    public override void Do()
+    {
+        base.Do();
+        if (IsOneTimeInteractable)
+            GetComponent<Collider2D>().enabled = false;
+    }
 }
