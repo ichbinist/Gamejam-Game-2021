@@ -46,8 +46,8 @@ public class SceneManagement : Singleton<SceneManagement>
 
     public void UnloadScene(string sceneName)
     {
-        Scene scene = SceneManager.GetSceneByName(sceneName);
         SceneManager.SetActiveScene(SceneManager.GetSceneAt(0));
+        Scene scene = SceneManager.GetSceneByName(sceneName);
         StartCoroutine(UnloadSceneCo(scene));
     }
 
