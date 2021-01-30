@@ -41,7 +41,7 @@ public class ChatBoxPanelController : MonoBehaviour
     public void InitializeButtons(int index)
     {
         ChatBoxText.text = qAData[index].Question;
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < qAData[index].Answers.Count; i++)
         {
             GameObject temp = Instantiate(ButtonPrefab, ButtonHolder); //.GetComponentInChildren<TextMeshProUGUI>().text = qAData[index].Answers[i];
             temp.GetComponentInChildren<TextMeshProUGUI>().text = qAData[index].Answers[i];
@@ -51,7 +51,7 @@ public class ChatBoxPanelController : MonoBehaviour
 
     public void NextConversation()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < qAData[ConversationIndex].Answers.Count; i++)
         {
             ButtonHolder.GetChild(i).GetComponentInChildren<ButtonController>().OnClicked.RemoveListener(NextConversation);
             Destroy(ButtonHolder.GetChild(i).gameObject);
