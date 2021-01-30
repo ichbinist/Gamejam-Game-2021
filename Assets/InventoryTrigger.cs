@@ -8,32 +8,20 @@ public class InventoryTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExi
 {
 
     public Transform InventoryHolder;
-    bool isInventoryDown = false;
+    public Vector2 InventoryStartPosition;
+
+    private void Start()
+    {
+        InventoryStartPosition = InventoryHolder.position;
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (isInventoryDown) return;
-        GetComponent<BoxCollider2D>().enabled = false;
-        InventoryHolder.DOMoveY(InventoryHolder.position.y - 110f, 0.2f).OnStart(() =>
-        {
-            isInventoryDown = true;
-        }).OnComplete(() =>
-        {
-            GetComponent<BoxCollider2D>().enabled = true;
-        });
+        InventoryHolder.DOMoveY(InventoryStartPosition.y - 110f, 0.3f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!isInventoryDown) return;
-        GetComponent<BoxCollider2D>().enabled = false;
-
-        InventoryHolder.DOMoveY(InventoryHolder.position.y + 110f, 0.2f).OnStart(() =>
-        {
-            isInventoryDown = false;
-        }).OnComplete(() =>
-        {
-            GetComponent<BoxCollider2D>().enabled = true;
-        });
+        InventoryHolder.DOMoveY(InventoryStartPosition.y, 0.3f);
     }
 }

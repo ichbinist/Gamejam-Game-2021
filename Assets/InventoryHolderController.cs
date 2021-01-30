@@ -27,7 +27,7 @@ public class InventoryHolderController : MonoBehaviour
     private void onItemCollectedListener(Sprite itemSprite, ItemType type)
     {
         // inventory'e ilgili sprite'ı ekle
-        Instantiate(InventoryItem, InventoryHolder);
+        Instantiate(InventoryItem, InventoryHolder).GetComponent<ButtonClickController>().Initialize(type);
         InventoryItem.GetComponent<Image>().sprite = itemSprite;
 
         // inventory'i aşağı kaydır ve kullanıcıya göster
@@ -41,6 +41,8 @@ public class InventoryHolderController : MonoBehaviour
         StartCoroutine(startCO());
 
     }
+
+    
 
     IEnumerator startCO()
     {
