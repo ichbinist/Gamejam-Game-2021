@@ -10,10 +10,13 @@ public class ChatBoxPanelController : MonoBehaviour
     public Transform chatBox;
     private TextMeshProUGUI chatBoxText;
     public TextMeshProUGUI ChatBoxText { get { return (chatBoxText == null) ? chatBoxText = GameObject.FindGameObjectWithTag("chatBox").GetComponentInChildren<TextMeshProUGUI>() : chatBoxText; } }
-    public Button select1;
-    public Button select2;
-    public Button select3;
 
+    private List<QAData> qAData;
+
+    public GameObject ButtonPrefab;
+    public Transform ButtonHolder;
+
+    public int ConversationIndex;
     private void OnEnable()
     {
         if (!Managers.Instance) return;
@@ -26,13 +29,42 @@ public class ChatBoxPanelController : MonoBehaviour
         ChatManager.Instance.onStartCommunication.AddListener(onStartCommunicationListener);
     }
 
-    private void onStartCommunicationListener(CommunicationType type)
+    private void onStartCommunicationListener(CommunicationType type, List<QAData> qAData)
     {
         if (!(type == CommunicationType.NPC)) return;
         chatBox.DOMoveY(chatBox.position.y + 240f, 0.2f);
-        ChatBoxText.text = "Lahmacun sever misin?";
-        select1.GetComponentInChildren<TextMeshProUGUI>().text = "Evet, severim";
-        select2.GetComponentInChildren<TextMeshProUGUI>().text = "Hayır, severim";
-        select3.GetComponentInChildren<TextMeshProUGUI>().text = "Sanane, severim";
+        ConversationIndex = 0;
+        this.qAData = qAData;
+        InitializeButtons(ConversationIndex);
+    }
+
+    public void InitializeButtons(int index)
+    {
+        ChatBoxText.text = qAData[index].Question;
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject temp = Instantiate(ButtonPrefab, ButtonHolder); //.GetComponentInChildren<TextMeshProUGUI>().text = qAData[index].Answers[i];
+            temp.GetComponentInChildren<TextMeshProUGUI>().text = qAData[index].Answers[i];
+            temp.GetComponentInChildren<ButtonController>().OnClicked.AddListener(NextConversation);
+        }
+    }
+
+    public void NextConversation()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            ButtonHolder.GetChild(i).GetComponentInChildren<ButtonController>().OnClicked.RemoveListener(NextConversation);
+            Destroy(ButtonHolder.GetChild(i).gameObject);
+        }
+        ConversationIndex++;
+        if(ConversationIndex > qAData.Count-1)
+        {
+            chatBox.DOMoveY(chatBox.position.y - 240f, 0.2f);
+        }
+        else
+        {
+            InitializeButtons(ConversationIndex);
+        }
+        
     }
 }

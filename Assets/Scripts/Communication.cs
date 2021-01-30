@@ -9,8 +9,7 @@ public class Communication : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            ChatManager.Instance.onStartCommunication.Invoke(communicationType);
+            ChatManager.Instance.onStartCommunication.Invoke(communicationType, null);
         }
-    }
-    
+    }   
 }

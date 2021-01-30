@@ -10,7 +10,7 @@ public class ChatManager : Singleton<ChatManager>
 
 }
 
-public class ChatEvent : UnityEvent<CommunicationType>
+public class ChatEvent : UnityEvent<CommunicationType, List<QAData>>
 {
 
 }
