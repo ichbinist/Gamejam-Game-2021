@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.EventSystems;
 
-public class InventoryTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class InventoryTrigger : MonoBehaviour
 {
 
     public Transform InventoryHolder;
@@ -12,16 +12,18 @@ public class InventoryTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     private void Start()
     {
-        InventoryStartPosition = InventoryHolder.position;
+        InventoryStartPosition = InventoryHolder.localPosition;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    private void Update()
     {
-        InventoryHolder.DOMoveY(InventoryStartPosition.y - 110f, 0.3f);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        InventoryHolder.DOMoveY(InventoryStartPosition.y, 0.3f);
+        if (Screen.height - 100f < Input.mousePosition.y)
+        {
+            InventoryHolder.DOLocalMoveY(InventoryStartPosition.y - 110f, 0.3f);
+        }
+        else if(InventoryHolder.localPosition.y == InventoryStartPosition.y - 110f)
+        {
+            InventoryHolder.DOLocalMoveY(InventoryStartPosition.y, 0.3f);
+        }
     }
 }
