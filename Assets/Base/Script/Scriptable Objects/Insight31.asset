@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f001649125c724391a754d6de1fce41f, type: 3}
+  m_Name: Insight31
+  m_EditorClassIdentifier: 
+  Question: 'Franky: Hey! Sorry to yell at you. Please don''t hurt me. People scared
+    from me want to hurt me. I just defending myself. I knew where is Zuffy that
+    you talked about. But I want a favor from you. Can you take me to the only people
+    that will not judge me or hurt me? Rain''s room.'
+  Answers: []
