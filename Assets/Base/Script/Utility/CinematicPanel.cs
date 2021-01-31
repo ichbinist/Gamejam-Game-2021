@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class CinematicPanel : MonoBehaviour
 {
-    private Sequence Sequence = DOTween.Sequence();
-
+    private Character player;
     public Image image;
+
     private void OnEnable()
     {
-      if(!Managers.Instance) return;
+      if(!Managers.Instance) return;      
         CinematicManager.Instance.OnCinematicStarted.AddListener(CinematicAnimation);
     }
 
@@ -23,7 +23,10 @@ public class CinematicPanel : MonoBehaviour
 
     private void CinematicAnimation(InteractableBase interactableBase)
     {
-        Sequence.Append(image.DOFade(1f, 0.3f).OnStart(()=> CharacterManager.Instance.GetPlayer.IsControlable = false));
-        Sequence.Append(image.DOFade(0f, 0.3f).OnComplete(() => { CharacterManager.Instance.GetPlayer.IsControlable = true; CinematicManager.Instance.OnCinematicFinished.Invoke(interactableBase); }));
+        Sequence Sequence = DOTween.Sequence();
+        player = CharacterManager.Instance.GetPlayer;
+        Sequence.Append(image.DOFade(1f, 1f).OnComplete(() => { CinematicManager.Instance.OnCinematicFinished.Invoke(interactableBase); }));
+        Sequence.Append(image.DOFade(0f, 1f));
+        Sequence.Play();
     }
 }

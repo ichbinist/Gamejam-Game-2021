@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -136,6 +136,9 @@ GameObject:
   - component: {fileID: 1942535101}
   - component: {fileID: 1942535106}
   - component: {fileID: 1942535107}
+  - component: {fileID: 1942535108}
+  - component: {fileID: 1942535110}
+  - component: {fileID: 1942535109}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -242,5 +245,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fcabf66e03d8dd4d898b3581b68f767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectedItem: 0
+--- !u!114 &1942535108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942535100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6980a284e59cfdb42b9b0329e7c02382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1942535109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942535100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0970fad53594e4aa1b5d1e70f353ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GetPlayer: {fileID: 0}
+--- !u!114 &1942535110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942535100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b31b1a4f6b3642f98a74356984863b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

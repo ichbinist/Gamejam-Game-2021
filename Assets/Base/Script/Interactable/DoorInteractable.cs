@@ -23,6 +23,7 @@ public class DoorInteractable : ColliderInteractable
     {
         base.Do();
         CinematicManager.Instance.OnCinematicStarted.Invoke(this);
+        CharacterManager.Instance.GetPlayer.IsControlable = false;
     }
 
     public void ChangeRoom(InteractableBase interactableBase)
@@ -33,6 +34,7 @@ public class DoorInteractable : ColliderInteractable
             RoomManager.Instance.OnRoomExit.Invoke(RoomManager.Instance.CurrentRoom.RoomID);
         RoomManager.Instance.OnRoomEnter.Invoke(AttachedRoom.RoomID);
         TeleportPlayer();
+        CharacterManager.Instance.GetPlayer.IsControlable = true;
     }
 
     public void TeleportPlayer()
