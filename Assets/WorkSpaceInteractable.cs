@@ -4,24 +4,33 @@ using UnityEngine;
 
 public class WorkSpaceInteractable : ColliderInteractable
 {
+    public ItemType CorrectType;
 
     public Sprite CollectedItemSprite;
     public ItemType CollectedItemType;
+    public List<QAData> qADatas;
 
     public override void Do()
     {
         base.Do();
-        if (!(InventoryManager.Instance.SelectedItem == ItemType.Hammer))
+        if (!(InventoryManager.Instance.SelectedItem == CorrectType))
         {
-            Debug.Log("Selected Item is not a Hammer, you have " + InventoryManager.Instance.SelectedItem + " in your hands");
             return;
         }
+        
 
         InventoryManager.Instance.onItemUsed.Invoke(InventoryManager.Instance.SelectedItem);
-        InventoryManager.Instance.onItemCollected.Invoke(CollectedItemSprite, CollectedItemType);
-
-
-        Destroy(gameObject);
+        
+        if (GetComponent<NPCCommunication>() == null)
+        {
+            Destroy(gameObject);
+            InventoryManager.Instance.onItemCollected.Invoke(CollectedItemSprite, CollectedItemType);
+        }
+        else
+        {
+            ChatManager.Instance.onStartCommunication.Invoke(CommunicationType.Insight, qADatas);
+            GameObject.Find("chatBoxPanel").GetComponent<ChatBoxPanelController>().HideChat();
+        }          
     }
 
 }
