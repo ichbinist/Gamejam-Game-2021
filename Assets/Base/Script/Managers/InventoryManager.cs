@@ -31,5 +31,6 @@ public enum ItemType
     Hammer,
     NeedleAndThread,
     Battery,
-    LaserBeam
+    LaserBeam,
+    Money
 }

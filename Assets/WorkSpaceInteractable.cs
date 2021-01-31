@@ -5,6 +5,9 @@ using UnityEngine;
 public class WorkSpaceInteractable : ColliderInteractable
 {
 
+    public Sprite CollectedItemSprite;
+    public ItemType CollectedItemType;
+
     public override void Do()
     {
         base.Do();
@@ -15,6 +18,8 @@ public class WorkSpaceInteractable : ColliderInteractable
         }
 
         InventoryManager.Instance.onItemUsed.Invoke(InventoryManager.Instance.SelectedItem);
+        InventoryManager.Instance.onItemCollected.Invoke(CollectedItemSprite, CollectedItemType);
+
 
         Destroy(gameObject);
     }

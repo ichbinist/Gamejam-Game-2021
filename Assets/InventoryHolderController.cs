@@ -14,7 +14,6 @@ public class InventoryHolderController : MonoBehaviour
     {
         if (!Managers.Instance) return;
         InventoryManager.Instance.onItemCollected.AddListener(onItemCollectedListener);
-        InventoryManager.Instance.onItemUsed.AddListener(onItemUsedListener);
 
     }
 
@@ -22,20 +21,14 @@ public class InventoryHolderController : MonoBehaviour
     {
         if (!Managers.Instance) return;
         InventoryManager.Instance.onItemCollected.RemoveListener(onItemCollectedListener);
-        InventoryManager.Instance.onItemUsed.RemoveListener(onItemUsedListener);
-
-    }
-
-    private void onItemUsedListener(ItemType type)
-    {
 
     }
 
     private void onItemCollectedListener(Sprite itemSprite, ItemType type)
     {
         // inventory'e ilgili sprite'ı ekle
-        Instantiate(InventoryItem, InventoryHolder).GetComponent<ButtonClickController>().Initialize(type);
         InventoryItem.GetComponent<Image>().sprite = itemSprite;
+        Instantiate(InventoryItem, InventoryHolder).GetComponent<ButtonClickController>().Initialize(type);
 
         // inventory'i aşağı kaydır ve kullanıcıya göster
         InventoryHolder.DOMoveY(InventoryHolder.position.y - 110f, 0.2f);
