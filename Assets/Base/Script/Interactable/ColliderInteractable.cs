@@ -10,13 +10,13 @@ public class ColliderInteractable : InteractableBase
     public override void Escape()
     {
         base.Escape();
-        ScaleAnimation.Close();
+           ScaleAnimation.Close();
     }
 
     public override void Interact()
     {
         base.Interact();
-        ScaleAnimation.Open();
+            ScaleAnimation.Open();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

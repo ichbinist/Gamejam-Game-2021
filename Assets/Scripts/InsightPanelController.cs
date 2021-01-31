@@ -30,7 +30,7 @@ public class InsightPanelController : MonoBehaviour
         int tweenID = gameObject.GetInstanceID();
         if (isAnimationStarted)
             return;
-        insightBox.DOMoveY(insightBox.position.y + 50f, 0.2f).SetId(tweenID)
+        insightBox.DOMoveY(insightBox.position.y + 100f, 0.2f).SetId(tweenID)
             .OnStart(() =>
         {
             if (!isAnimationStarted)
@@ -38,14 +38,14 @@ public class InsightPanelController : MonoBehaviour
                 isAnimationStarted = true;
             }
         });
-        InsightText.text = "Pil bulmalıyım";
+        InsightText.text = data[0].Question;
         StartCoroutine(startCO());
     }
 
     IEnumerator startCO()
     {
         yield return new WaitForSeconds(2f);
-        insightBox.DOMoveY(insightBox.position.y-50f, 0.2f).SetId(gameObject.GetInstanceID()).OnComplete(() =>
+        insightBox.DOMoveY(insightBox.position.y-100f, 0.2f).SetId(gameObject.GetInstanceID()).OnComplete(() =>
         {
             isAnimationStarted = false;
         });
