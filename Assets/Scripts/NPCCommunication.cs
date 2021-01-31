@@ -11,8 +11,8 @@ public class NPCCommunication : ColliderInteractable
     {
         base.Do();
         ChatManager.Instance.onStartCommunication.Invoke(communicationType, Conversation);
+        CharacterManager.Instance.GetPlayer.IsControlable = false;
     }
-
 }
 
 public enum CommunicationType

@@ -60,6 +60,7 @@ public class ChatBoxPanelController : MonoBehaviour
         if(ConversationIndex > qAData.Count-1)
         {
             chatBox.DOMoveY(chatBox.position.y - 240f, 0.2f);
+            CharacterManager.Instance.GetPlayer.IsControlable = true;
         }
         else
         {
