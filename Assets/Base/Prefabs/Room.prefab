@@ -359,6 +359,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8704184157468297142}
     m_Modifications:
+    - target: {fileID: 681668744620280752, guid: 96b786c151c6c430eacdbbb7e2c50707,
+        type: 3}
+      propertyPath: m_ShadowIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 681668744620280752, guid: 96b786c151c6c430eacdbbb7e2c50707,
+        type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7300252020022977747, guid: 96b786c151c6c430eacdbbb7e2c50707,
         type: 3}
       propertyPath: m_Name
