@@ -14,13 +14,20 @@ public class InventoryHolderController : MonoBehaviour
     {
         if (!Managers.Instance) return;
         InventoryManager.Instance.onItemCollected.AddListener(onItemCollectedListener);
+        InventoryManager.Instance.onItemUsed.AddListener(onItemUsedListener);
 
     }
 
     private void OnDisable()
     {
         if (!Managers.Instance) return;
-        InventoryManager.Instance.onItemCollected.AddListener(onItemCollectedListener);
+        InventoryManager.Instance.onItemCollected.RemoveListener(onItemCollectedListener);
+        InventoryManager.Instance.onItemUsed.RemoveListener(onItemUsedListener);
+
+    }
+
+    private void onItemUsedListener(ItemType type)
+    {
 
     }
 
