@@ -19,6 +19,8 @@ public class Character : MonoBehaviour
 
     public GameObject Graphics;
 
+    public int Health = 4;
+
     private void Awake()
     {
         if(CharacterType == CharacterType.Player)

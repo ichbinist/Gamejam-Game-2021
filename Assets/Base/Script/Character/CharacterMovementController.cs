@@ -12,17 +12,20 @@ public class CharacterMovementController : MonoBehaviour
     private bool isLeftKeyPressed, isRightKeyPressed;
     private Vector3 startingScale;
     private Vector2 lastRotation;
+    
     private void OnEnable()
     {
       if(!Managers.Instance) return;
         startingScale = Character.Graphics.transform.localScale;
         lastRotation = startingScale;
+
+        CombatManager.Instance.OnDeath.AddListener(() => Character.IsControlable = false);
     }
 
     private void OnDisable()
     {
       if(!Managers.Instance) return;
-
+        CombatManager.Instance.OnDeath.RemoveListener(() => Character.IsControlable = false);
     }
 
     private void Update()
