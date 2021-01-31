@@ -1196,9 +1196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98557ba8aca130e40b92ec0e97d34f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Play: {fileID: 0}
-  Credits: {fileID: 0}
-  Exit: {fileID: 0}
+  Play: {fileID: 398598747}
+  Credits: {fileID: 444624198}
+  Exit: {fileID: 1511583888}
 --- !u!1 &1511583886
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void StartGame()
     {
+        SceneManagement.Instance.LoadScene("TestLevel");
     }
 
     public void FinishLevel()

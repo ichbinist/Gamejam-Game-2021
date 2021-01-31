@@ -42,6 +42,8 @@ public class SceneManagement : Singleton<SceneManagement>
     private IEnumerator LoadMenuSceneCo()
     {
         yield return SceneManager.LoadSceneAsync("UI", LoadSceneMode.Additive);
+        yield return SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+
     }
 
     public void UnloadScene(string sceneName)
