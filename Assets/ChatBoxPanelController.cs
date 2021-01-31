@@ -48,7 +48,16 @@ public class ChatBoxPanelController : MonoBehaviour
             temp.GetComponentInChildren<ButtonController>().OnClicked.AddListener(NextConversation);
         }
     }
-
+    public void HideChat()
+    {
+        for (int i = 0; i < qAData[ConversationIndex].Answers.Count; i++)
+        {
+            ButtonHolder.GetChild(i).GetComponentInChildren<ButtonController>().OnClicked.RemoveListener(NextConversation);
+            Destroy(ButtonHolder.GetChild(i).gameObject);
+        }
+        chatBox.DOMoveY(chatBox.position.y - 240f, 0.2f);
+        CharacterManager.Instance.GetPlayer.IsControlable = true;
+    }
     public void NextConversation()
     {
         for (int i = 0; i < qAData[ConversationIndex].Answers.Count; i++)
